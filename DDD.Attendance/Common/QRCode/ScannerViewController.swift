@@ -14,6 +14,7 @@ class ScannerViewController: BaseViewController {
     private var captureSession: AVCaptureSession!
     private var previewLayer: AVCaptureVideoPreviewLayer!
     private let firebase = Firebase()
+    var attendanceTimeStamp: Int64?
     
     override func bindData() {
         super.bindData()
@@ -30,19 +31,25 @@ class ScannerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.setHidesBackButton(true, animated: false)
         navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .cancel,
                                                          target: self,
-                                                         action: #selector(signOut)), animated: true)
+                                                         action: #selector(outQRScanner)), animated: true)
         
+        guard attendanceTimeStamp != nil else {
+            self.showAlert(title: "출석 시간 없음",
+                           message: "출석 시간이 등록되지 않았습니다.") { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }
+            return
+        }
         captureSession.startRunning()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if captureSession?.isRunning == false {
-            captureSession.startRunning()
-        }
+        captureSession.startRunning()
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -107,23 +114,31 @@ private extension ScannerViewController {
         captureSession = nil
     }
     
-    func found(code: String) {
-        showAlert(title: "출석 완료", message: code) { [weak self] _ in
-            if self?.captureSession?.isRunning == false {
-                self?.captureSession.startRunning()
-            }
+    func processedAttendance(from userId: String) {
+        guard let attendanceTimeStamp = attendanceTimeStamp else { return }
+        let currentTimeStamp = Date().getTimeStamp()
+        let isLate = currentTimeStamp > attendanceTimeStamp
+        firebase.attendance(userId: userId, isLate: isLate, timeStamp: currentTimeStamp) { [weak self] result in
+            self?.showResult(result: result)
         }
     }
     
-    @objc func signOut() {
-        firebase.signOut { [weak self] isSuccess in
-            if isSuccess {
-                let loginVC = LoginViewController.instantiateViewController()
-                UIApplication.shared.keyWindow?.rootViewController = loginVC
-            } else {
-                self?.showAlert(title: "로그아웃 실패", message: "로그아웃에 실패하였습니다.")
-            }
+    func showResult(result: Bool) {
+        let title = result ? "출석 완료" : "출석 실패"
+        let message: String? = result ? nil : "QR 코드를 다시 스캔해주세요"
+        self.showAlert(title: title, message: message) { [weak self] _ in
+            self?.restartScanner()
         }
+    }
+    
+    func restartScanner() {
+        if self.captureSession?.isRunning == false {
+            self.captureSession.startRunning()
+        }
+    }
+    
+    @objc func outQRScanner() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -139,7 +154,7 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            found(code: stringValue)
+            processedAttendance(from: stringValue)
         }
         
         if captureSession?.isRunning == true {
