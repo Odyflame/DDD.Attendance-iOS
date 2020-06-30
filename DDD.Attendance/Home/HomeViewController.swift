@@ -14,7 +14,6 @@ class HomeViewController: BaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var bottomTriggerViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var profileButton: UIBarButtonItem!
     @IBOutlet weak var bottomTriggerView: AccountView!
     
     private let viewModel = HomeViewModel()
@@ -78,9 +77,9 @@ class HomeViewController: BaseViewController {
         
         viewModel.inputs.generateQRCode()
         
-        viewModel.inputs.remoteCurriculumList()
-        
         viewModel.inputs.remoteBanner()
+        
+        viewModel.inputs.remoteCurriculumList()
     }
     
     override func viewWillAppear(_ animated: Bool) {

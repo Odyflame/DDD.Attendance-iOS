@@ -11,4 +11,5 @@ import Foundation
 struct Banner: Codable {
     let title: String
     let subTitle: String
+    let imageData: Data?
 }
