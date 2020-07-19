@@ -68,6 +68,11 @@ class HomeViewController: BaseViewController {
         reactive.loadBanner <~ viewModel.outputs.fetchBanner
         
         reactive.loadCurriculum <~ viewModel.outputs.fetchCurriculumList
+        
+        dataSource.imageTappedHandler = { [weak self] image in
+            guard let image = image else { return }
+            self?.tappedImageViewHandler(to: image)
+        }
     }
     
     override func viewDidLoad() {
@@ -101,6 +106,13 @@ class HomeViewController: BaseViewController {
 
 // MARK: - Private
 private extension HomeViewController {
+    
+    func tappedImageViewHandler(to image: UIImage) {
+        let imageScrollVC = ImageScrollViewController.instantiateViewController()
+        imageScrollVC.modalPresentationStyle = .fullScreen
+        imageScrollVC.update(to: image)
+        self.navigationController?.pushViewController(imageScrollVC, animated: true)
+    }
     
     func setupAccountView(by accountData: AccountModel) {
        bottomTriggerView.configure(by: accountData)

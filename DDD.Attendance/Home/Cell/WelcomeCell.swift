@@ -15,6 +15,8 @@ class WelcomeCell: UITableViewCell, BaseCell {
     @IBOutlet private weak var subjectLabel: UILabel!
     @IBOutlet private weak var welcomeImageView: UIImageView!
     
+    var imageTappedHandler: ((UIImage?) -> Void)?
+    
     func configureWith(value: Banner) {
         subjectLabel.text = value.subTitle
         if let imageData = value.imageData {
@@ -22,5 +24,17 @@ class WelcomeCell: UITableViewCell, BaseCell {
         } else {
             welcomeImageView.image = #imageLiteral(resourceName: "mainTemporaryBanner")
         }
+        
+        welcomeImageView.isUserInteractionEnabled = true
+        welcomeImageView.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                                     action: #selector(tappedImageView)))
     }
+    
+    @objc private func tappedImageView() {
+        imageTappedHandler?(welcomeImageView.image)
+    }
+}
+
+extension Notification.Name {
+    static let tapImageViewNotification = Notification.Name("tapImageViewNotification")
 }
