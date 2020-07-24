@@ -11,7 +11,7 @@ import Foundation
 
 import Nimble
 import Quick
-import ReactiveSwift
+@testable import ReactiveSwift
 
 class SignalProducerSpec: QuickSpec {
 	override func spec() {
@@ -995,6 +995,23 @@ class SignalProducerSpec: QuickSpec {
 				expect(ids) == [1, 2]
 				expect(values._bridgeToObjectiveC()) == [[1, 2]]._bridgeToObjectiveC()
 			}
+			
+			it("can deal with hundreds of producers") {
+				let scheduler = QueueScheduler(qos: .default, name: "RACScheduler", targeting: nil)
+				
+				let producers = (0..<700).map { _ -> SignalProducer<Void, Never> in
+					return SignalProducer(value: ())
+				}
+				
+				waitUntil { done in
+					SignalProducer
+						.combineLatest(producers)
+						.start(on: scheduler)
+						.startWithCompleted {
+							done()
+					}
+				}
+			}
 		}
 
 		describe("zip") {
@@ -1031,6 +1048,23 @@ class SignalProducerSpec: QuickSpec {
 
 				expect(ids) == [1, 2]
 				expect(values._bridgeToObjectiveC()) == [[1, 2]]._bridgeToObjectiveC()
+			}
+			
+			it("can deal with hundreds of producers") {
+				let scheduler = QueueScheduler(qos: .default, name: "RACScheduler", targeting: nil)
+				
+				let producers = (0..<700).map { _ -> SignalProducer<Void, Never> in
+					return SignalProducer(value: ())
+				}
+				
+				waitUntil { done in
+					SignalProducer
+						.zip(producers)
+						.start(on: scheduler)
+						.startWithCompleted {
+							done()
+					}
+				}
 			}
 		}
 
@@ -1741,6 +1775,135 @@ class SignalProducerSpec: QuickSpec {
 				it("should not deadlock") {
 					let producer = SignalProducer<Int, Never>(value: 1)
 						.flatMap(.race) { _ in SignalProducer(value: 10) }
+
+					let result = producer.take(first: 1).last()
+					expect(result?.value) == 10
+				}
+			}
+
+			describe("FlattenStrategy.throttle") {
+				it("should forward values from the first and third inner producer to send an event") {
+					let (outer, outerObserver) = SignalProducer<SignalProducer<Int, TestError>, TestError>.pipe()
+					let (firstInner, firstInnerObserver) = SignalProducer<Int, TestError>.pipe()
+					let (secondInner, secondInnerObserver) = SignalProducer<Int, TestError>.pipe()
+					let (thirdInner, thirdInnerObserver) = SignalProducer<Int, TestError>.pipe()
+
+					var receivedValues: [Int] = []
+					var errored = false
+					var completed = false
+
+					outer.flatten(.throttle).start { event in
+						switch event {
+						case let .value(value):
+							receivedValues.append(value)
+						case .completed:
+							completed = true
+						case .failed:
+							errored = true
+						case .interrupted:
+							break
+						}
+					}
+
+					outerObserver.send(value: firstInner)
+					outerObserver.send(value: secondInner)
+
+					firstInnerObserver.send(value: 1)
+					secondInnerObserver.send(value: 2)
+
+					expect(receivedValues) == [ 1 ]
+					expect(errored) == false
+					expect(completed) == false
+
+					secondInnerObserver.send(value: 3)
+					secondInnerObserver.sendCompleted()
+
+					expect(receivedValues) == [ 1 ]
+					expect(errored) == false
+					expect(completed) == false
+
+					firstInnerObserver.sendCompleted()
+
+					expect(receivedValues) == [ 1 ]
+					expect(errored) == false
+					expect(completed) == false
+
+					outerObserver.send(value: thirdInner)
+					thirdInnerObserver.send(value: 4)
+
+					// NOTE:
+					// `4` will be observed because `firstInner` is completed then `thirdInner` is emitted,
+					// which is also considered as "first" producer.
+					expect(receivedValues) == [ 1, 4 ]
+					expect(errored) == false
+					expect(completed) == false
+
+					outerObserver.sendCompleted()
+
+					expect(receivedValues) == [ 1, 4 ]
+					expect(errored) == false
+					expect(completed) == false
+
+					thirdInnerObserver.sendCompleted()
+
+					expect(receivedValues) == [ 1, 4 ]
+					expect(errored) == false
+					expect(completed) == true
+				}
+
+				it("should forward an error from the first inner producer to send an error") {
+					let inner = SignalProducer<Int, TestError>(error: .default)
+					let outer = SignalProducer<SignalProducer<Int, TestError>, TestError>(value: inner)
+
+					let result = outer.flatten(.throttle).first()
+					expect(result?.error) == TestError.default
+				}
+
+				it("should forward an error from the outer producer") {
+					let outer = SignalProducer<SignalProducer<Int, TestError>, TestError>(error: .default)
+
+					let result = outer.flatten(.throttle).first()
+					expect(result?.error) == TestError.default
+				}
+
+				it("should complete when the 'outer producer' and 'first inner producer to send an event' have completed") {
+					let inner = SignalProducer<Int, TestError>.empty
+					let outer = SignalProducer<SignalProducer<Int, TestError>, TestError>(value: inner)
+
+					var completed = false
+					outer.flatten(.throttle).startWithCompleted {
+						completed = true
+					}
+
+					expect(completed) == true
+				}
+
+				it("should complete when the outer producer completes before sending any inner producers") {
+					let outer = SignalProducer<SignalProducer<Int, TestError>, TestError>.empty
+
+					var completed = false
+					outer.flatten(.throttle).startWithCompleted {
+						completed = true
+					}
+
+					expect(completed) == true
+				}
+
+				it("should not complete when the outer producer completes after sending an inner producer but it doesn't send an event") {
+					let inner = SignalProducer<Int, TestError>.never
+					let outer = SignalProducer<SignalProducer<Int, TestError>, TestError>(value: inner)
+
+					var completed = false
+					outer.flatten(.throttle).startWithCompleted {
+						completed = true
+					}
+
+					expect(completed) == false
+				}
+
+				it("should not deadlock") {
+					let producer = SignalProducer<Int, Never>(value: 1)
+						.flatMap(.throttle) { _ in SignalProducer(value: 10) }
 
 					let result = producer.take(first: 1).last()
 					expect(result?.value) == 10
@@ -2996,6 +3159,62 @@ class SignalProducerSpec: QuickSpec {
 			it("should be able to fallback to SignalProducer for contextual lookups") {
 				_ = SignalProducer<Bool, Never>.empty
 					.and(.init(value: true))
+				_ = SignalProducer<Bool, Never>.and(.init(value: true))
+			}
+		}
+
+		describe("all attribute") {
+			it("should emit true when all producers emit the same value") {
+				let producer1 = SignalProducer<Bool, Never> { observer, _ in
+					observer.send(value: true)
+					observer.sendCompleted()
+				}
+				let producer2 = SignalProducer<Bool, Never> { observer, _ in
+					observer.send(value: true)
+					observer.sendCompleted()
+				}
+				let producer3 = SignalProducer<Bool, Never> { observer, _ in
+					observer.send(value: true)
+					observer.sendCompleted()
+				}
+
+				SignalProducer.all([producer1, producer2, producer3]).startWithValues { value in
+					expect(value).to(beTrue())
+				}
+			}
+
+			it("should emit false when all producers emit opposite values") {
+				let producer1 = SignalProducer<Bool, Never> { observer, _ in
+					observer.send(value: true)
+					observer.sendCompleted()
+				}
+				let producer2 = SignalProducer<Bool, Never> { observer, _ in
+					observer.send(value: false)
+					observer.sendCompleted()
+				}
+				let producer3 = SignalProducer<Bool, Never> { observer, _ in
+					observer.send(value: false)
+					observer.sendCompleted()
+				}
+
+				SignalProducer.all([producer1, producer2, producer3]).startWithValues { value in
+					expect(value).to(beFalse())
+				}
+			}
+
+			it("should work the same way when using array of signals instead of an array of producers") {
+				let (signal1, observer1) = Signal<Bool, Never>.pipe()
+				let (signal2, observer2) = Signal<Bool, Never>.pipe()
+				let (signal3, observer3) = Signal<Bool, Never>.pipe()
+				SignalProducer.all([signal1, signal2, signal3]).startWithValues { value in
+					expect(value).to(beTrue())
+				}
+				observer1.send(value: true)
+				observer1.sendCompleted()
+				observer2.send(value: true)
+				observer2.sendCompleted()
+				observer3.send(value: true)
+				observer3.sendCompleted()
 			}
 		}
 
@@ -3047,6 +3266,64 @@ class SignalProducerSpec: QuickSpec {
 			it("should be able to fallback to SignalProducer for contextual lookups") {
 				_ = SignalProducer<Bool, Never>.empty
 					.or(.init(value: true))
+				_ = SignalProducer<Bool, Never>.or(.init(value: true))
+			}
+		}
+
+		describe("any attribute") {
+			it("should emit true when at least one of the producers in array emits true") {
+				let producer1 = SignalProducer<Bool, Never> { observer, _ in
+					observer.send(value: true)
+					observer.sendCompleted()
+				}
+				let producer2 = SignalProducer<Bool, Never> { observer, _ in
+					observer.send(value: false)
+					observer.sendCompleted()
+				}
+				let producer3 = SignalProducer<Bool, Never> { observer, _ in
+					observer.send(value: false)
+					observer.sendCompleted()
+				}
+
+				SignalProducer.any([producer1, producer2, producer3]).startWithValues { value in
+					expect(value).to(beTrue())
+				}
+			}
+			
+			it("should emit false when all producers in array emit false") {
+				let producer1 = SignalProducer<Bool, Never> { observer, _ in
+					observer.send(value: false)
+					observer.sendCompleted()
+				}
+				let producer2 = SignalProducer<Bool, Never> { observer, _ in
+					observer.send(value: false)
+					observer.sendCompleted()
+				}
+				let producer3 = SignalProducer<Bool, Never> { observer, _ in
+					observer.send(value: false)
+					observer.sendCompleted()
+				}
+
+				SignalProducer.any([producer1, producer2, producer3]).startWithValues { value in
+					expect(value).to(beFalse())
+				}
+			}
+			
+			it("should work the same way when using array of signals instead of an array of producers") {
+				let (signal1, observer1) = Signal<Bool, Never>.pipe()
+				let (signal2, observer2) = Signal<Bool, Never>.pipe()
+				let (signal3, observer3) = Signal<Bool, Never>.pipe()
+				let arrayOfSignals = [signal1, signal2, signal3]
+
+				SignalProducer.any(arrayOfSignals).startWithValues { value in
+					expect(value).to(beTrue())
+				}
+				observer1.send(value: true)
+				observer1.sendCompleted()
+				observer2.send(value: true)
+				observer2.sendCompleted()
+				observer3.send(value: true)
+				observer3.sendCompleted()
 			}
 		}
 

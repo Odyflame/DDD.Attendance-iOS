@@ -10,16 +10,38 @@ import UIKit
 
 class HomeDataSource: BaseDataSource {
     
+    enum Section: Int {
+        case welcome
+        case attendance
+    }
+    
+    enum HeaderTitle {
+        static let list = "4기 커리큘럼 리스트"
+    }
+    
+    var imageTappedHandler: ((UIImage?) -> Void)?
+    
     override func configureCell(tableCell cell: UITableViewCell, withValue value: Any) {
         switch (cell, value) {
-        case let (cell as AttendanceListCell, value as AttendanceListModel):
+        case let (cell as HomeHeaderCell, value as String):
+            cell.configureWith(value: value)
+        case let (cell as WelcomeCell, value as Banner):
+            cell.imageTappedHandler = imageTappedHandler
+            cell.configureWith(value: value)
+        case let (cell as AttendanceListCell, value as Curriculum):
             cell.configureWith(value: value)
         default:
             fatalError("Invaild \(cell), \(value)")
         }
     }
     
-    func load(from data: [AttendanceListModel]) {
-        set(values: data, cellClass: AttendanceListCell.self, inSection: 0)
+    func loadBanner(with banner: Banner) {
+        appendRow(value: banner.title, cellClass: HomeHeaderCell.self, toSection: Section.welcome.rawValue)
+        appendRow(value: banner, cellClass: WelcomeCell.self, toSection: Section.welcome.rawValue)
+    }
+    
+    func loadCurriculum(with curriculumList: [Curriculum]) {
+        appendRow(value: HeaderTitle.list, cellClass: HomeHeaderCell.self, toSection: Section.attendance.rawValue)
+        appendSection(values: curriculumList, cellClass: AttendanceListCell.self)
     }
 }

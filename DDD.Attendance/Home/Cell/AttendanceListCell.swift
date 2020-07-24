@@ -16,9 +16,16 @@ class AttendanceListCell: UITableViewCell, BaseCell {
     @IBOutlet private weak var attendanceTitleLabel: UILabel!
     @IBOutlet private weak var attendanceTimeStampLabel: UILabel!
     
-    func configureWith(value: AttendanceListModel) {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        attendanceImageView.image = nil
+        attendanceTitleLabel.text = nil
+        attendanceTimeStampLabel.text = nil
+    }
+    
+    func configureWith(value: Curriculum) {
         attendanceTitleLabel.text = value.title
-        attendanceTimeStampLabel.text = value.timeStamp
-        attendanceImageView.backgroundColor = UIColor.red
+        attendanceTimeStampLabel.text = value.date
+        attendanceImageView.image = value.isDone ? #imageLiteral(resourceName: "btnCheck") : #imageLiteral(resourceName: "btnCheckGray")
     }
 }
