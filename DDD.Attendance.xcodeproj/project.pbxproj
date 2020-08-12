@@ -61,7 +61,7 @@
 		BC1014932333D9BB0096E962 /* HomeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1014912333D9BB0096E962 /* HomeHeaderCell.xib */; };
 		BC1014982333DD4E0096E962 /* WelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1014962333DD4E0096E962 /* WelcomeCell.swift */; };
 		BC1014992333DD4E0096E962 /* WelcomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1014972333DD4E0096E962 /* WelcomeCell.xib */; };
-		BC381F302349F4760040202D /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC381F2F2349F4760040202D /* Firebase.swift */; };
+		BC381F302349F4760040202D /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC381F2F2349F4760040202D /* FirebaseClient.swift */; };
 		BC3E50AE232A5E4600B56EBF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC3E50AD232A5E4600B56EBF /* Login.storyboard */; };
 		BC3E50B0232A5E5600B56EBF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3E50AF232A5E5600B56EBF /* LoginViewController.swift */; };
 		BC3E50B3232A5EF600B56EBF /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC3E50B2232A5EF600B56EBF /* SignUp.storyboard */; };
@@ -107,6 +107,7 @@
 		BCE1B4102320034F001BB684 /* AttendanceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B40E2320034F001BB684 /* AttendanceListCell.swift */; };
 		BCE1B4112320034F001BB684 /* AttendanceListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE1B40F2320034F001BB684 /* AttendanceListCell.xib */; };
 		BCE1B4132320054F001BB684 /* AttendanceListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B4122320054F001BB684 /* AttendanceListModel.swift */; };
+		E53AF1E624E4312B00E517A4 /* FirebasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53AF1E524E4312B00E517A4 /* FirebasePath.swift */; };
 		E571F75F2323F08700816C04 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E571F75E2323F08700816C04 /* SnapKit.framework */; };
 		E571F7652324024D00816C04 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571F7642324024D00816C04 /* Storyboard.swift */; };
 		E571F767232402D200816C04 /* ReuseableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571F766232402D200816C04 /* ReuseableView.swift */; };
@@ -118,6 +119,8 @@
 		E571F77723241F5300816C04 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E571F77623241F5300816C04 /* Account.storyboard */; };
 		E571F77A2324345400816C04 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571F7792324345400816C04 /* UIView+Extension.swift */; };
 		E571F77C23243D7600816C04 /* HomeTransitionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571F77B23243D7600816C04 /* HomeTransitionCoordinator.swift */; };
+		E5821C6524D5902F00A89DBE /* FirebaseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5821C6424D5902F00A89DBE /* FirebaseDecoder.swift */; };
+		E5821C6724D596E100A89DBE /* FirebaseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5821C6624D596E100A89DBE /* FirebaseResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,7 +178,7 @@
 		BC1014912333D9BB0096E962 /* HomeHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderCell.xib; sourceTree = "<group>"; };
 		BC1014962333DD4E0096E962 /* WelcomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCell.swift; sourceTree = "<group>"; };
 		BC1014972333DD4E0096E962 /* WelcomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeCell.xib; sourceTree = "<group>"; };
-		BC381F2F2349F4760040202D /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		BC381F2F2349F4760040202D /* FirebaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
 		BC3E50AD232A5E4600B56EBF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		BC3E50AF232A5E5600B56EBF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BC3E50B2232A5EF600B56EBF /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
@@ -225,6 +228,7 @@
 		BCE1B40E2320034F001BB684 /* AttendanceListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceListCell.swift; sourceTree = "<group>"; };
 		BCE1B40F2320034F001BB684 /* AttendanceListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttendanceListCell.xib; sourceTree = "<group>"; };
 		BCE1B4122320054F001BB684 /* AttendanceListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceListModel.swift; sourceTree = "<group>"; };
+		E53AF1E524E4312B00E517A4 /* FirebasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePath.swift; sourceTree = "<group>"; };
 		E571F75E2323F08700816C04 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		E571F7642324024D00816C04 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		E571F766232402D200816C04 /* ReuseableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseableView.swift; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 		E571F77623241F5300816C04 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		E571F7792324345400816C04 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E571F77B23243D7600816C04 /* HomeTransitionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTransitionCoordinator.swift; sourceTree = "<group>"; };
+		E5821C6424D5902F00A89DBE /* FirebaseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDecoder.swift; sourceTree = "<group>"; };
+		E5821C6624D596E100A89DBE /* FirebaseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,8 +350,11 @@
 		BC381F2D2349F4600040202D /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				BC381F2F2349F4760040202D /* Firebase.swift */,
+				BC381F2F2349F4760040202D /* FirebaseClient.swift */,
 				BCDE474F2379A990009CEAC2 /* Curriculum.swift */,
+				E5821C6424D5902F00A89DBE /* FirebaseDecoder.swift */,
+				E5821C6624D596E100A89DBE /* FirebaseResult.swift */,
+				E53AF1E524E4312B00E517A4 /* FirebasePath.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -737,16 +746,18 @@
 				E571F77C23243D7600816C04 /* HomeTransitionCoordinator.swift in Sources */,
 				4648F78324BB1AEC0084B2A2 /* MenuModel.swift in Sources */,
 				BCE1B3ED231BE383001BB684 /* BaseDataSource.swift in Sources */,
+				E5821C6524D5902F00A89DBE /* FirebaseDecoder.swift in Sources */,
 				BC3E50B5232A5F0100B56EBF /* SignUpViewController.swift in Sources */,
 				BCE1B3F3231BE57F001BB684 /* HomeViewModel.swift in Sources */,
 				BC10148D232E32810096E962 /* LoginTransitionCoordinator.swift in Sources */,
 				4654355224C1FA0300541E14 /* AttendanceStatusHeader.swift in Sources */,
 				46481EA3249DF80100F3DB02 /* SetAttendanceViewController.swift in Sources */,
-				BC381F302349F4760040202D /* Firebase.swift in Sources */,
+				BC381F302349F4760040202D /* FirebaseClient.swift in Sources */,
 				E571F76E2324085C00816C04 /* InteractiveAnimator.swift in Sources */,
 				466B86BF24C475FE00855C94 /* NameHeaderCell.swift in Sources */,
 				4648F77724BB16040084B2A2 /* ManagerHomeViewController.swift in Sources */,
 				46AD886324A4DAFA0036B4AF /* BannerModel.swift in Sources */,
+				E5821C6724D596E100A89DBE /* FirebaseResult.swift in Sources */,
 				BC3E50C8232A6D6C00B56EBF /* Optional+Extension.swift in Sources */,
 				BCE1B3F5231BE67A001BB684 /* AccountView.swift in Sources */,
 				4654355424C2020000541E14 /* AttendanceStatusModel.swift in Sources */,
@@ -765,6 +776,7 @@
 				BC3E50B0232A5E5600B56EBF /* LoginViewController.swift in Sources */,
 				2074DB1D2348C6BE007D7377 /* SignUpViewModel.swift in Sources */,
 				E571F77423241D3300816C04 /* AccountViewController.swift in Sources */,
+				E53AF1E624E4312B00E517A4 /* FirebasePath.swift in Sources */,
 				BC8863FA234E36FE0031C7F1 /* PosterCell.swift in Sources */,
 				462EF76424B9B9590009768C /* ImageScrollViewController.swift in Sources */,
 				E571F76A2324033B00816C04 /* PresentingViewAnimator.swift in Sources */,

@@ -26,18 +26,22 @@ class LoginPopupViewController: BaseViewController {
     override func bindViewModel() {
         super.bindViewModel()
         
-        loginPopupView.resultHandler = { [weak self] status in
+        loginPopupView.loginSuccessHandler = { [weak self] status in
             NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
             switch status {
             case .admin:
                 self?.moveManagerHomeViewController()
             case .default:
                 self?.moveHomeViewController()
-            case .failure:
-                self?.loginFailureAction(with: "Email 또는 Password를 확인해주세요.")
             }
         }
-        
+
+        loginPopupView.loginFailureHandler = { [weak self] error in
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            print(error)
+            self?.loginFailureAction(with: "Email 또는 Password를 확인해주세요.")
+        }
+
         reactive.keyboardWillShow <~ NotificationCenter.default.reactive
             .keyboard(.willShow)
         

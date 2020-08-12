@@ -89,11 +89,13 @@ extension ManagerHomeViewController: UITableViewDelegate {
     }
     
     private func signOut() {
-        Firebase().signOut { [weak self] isSuccess in
-            if isSuccess {
+        FirebaseClient().requestSignOut { [weak self] result in
+            switch result {
+            case .success(_):
                 let loginVC = LoginViewController.instantiateViewController()
                 UIApplication.shared.keyWindow?.rootViewController = loginVC
-            } else {
+            case .failure(let error):
+                print(error)
                 self?.showAlert(title: "로그아웃 실패", message: "로그아웃에 실패하였습니다.")
             }
         }

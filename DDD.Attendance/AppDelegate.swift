@@ -52,11 +52,12 @@ private extension AppDelegate {
         let userDefault = UserDefaults.standard
         if userDefault.value(forKey: "wasOpendApp") == nil {
             userDefault.set(true, forKey: "wasOpendApp")
-            Firebase().signOut { isSuccess in
-                if isSuccess {
+            FirebaseClient().requestSignOut { result in
+                switch result {
+                case .success(_):
                     print("Success - Unauthenticate Firebase")
-                } else {
-                    print("Failure - Unauthenticate Firebase")
+                case .failure(let error):
+                    print(error)
                 }
             }
         }

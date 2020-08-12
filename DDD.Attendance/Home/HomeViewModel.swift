@@ -36,12 +36,12 @@ protocol HomeViewModelTypes {
 
 class HomeViewModel {
     
-    private let firebase: Firebase
+    private let firebase: FirebaseClient
     private let accountModelProperty = MutableProperty<AccountModel?>(nil)
     private let curriculumListProperty = MutableProperty<[Curriculum]?>(nil)
     private let bannerProperty = MutableProperty<Banner?>(nil)
     
-    init(firebase: Firebase = Firebase()) {
+    init(firebase: FirebaseClient = FirebaseClient()) {
         self.firebase = firebase
     }
 }

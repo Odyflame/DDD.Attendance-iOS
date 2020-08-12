@@ -11,95 +11,117 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-class Firebase {
+class FirebaseClient {
     
     let manager: Auth
     
     private let database = Database.database().reference()
     
-    enum LoginStatus {
+    enum AccountType {
         case admin
         case `default`
-        case failure
+    }
+
+    enum ErrorCode: Error {
+        case notFoundUser
+        case notExistedUid
+        case notExistedAccountType
     }
     
     init(manager: Auth = Auth.auth()) {
         self.manager = manager
     }
     
-    func login(with email: String, _ password: String, completion: @escaping (AuthDataResult?) -> Void) {
+    func requestSignIn(with email: String,
+                       _ password: String,
+                       completion: @escaping (Result<User>) -> Void
+    ) {
         manager.signIn(withEmail: email, password: password) { value, error in
-            guard let value = value else {
-                completion(nil)
+            guard let user = value?.user else {
+                completion(.failure(ErrorCode.notFoundUser))
                 return
             }
-            completion(value)
+            completion(.success(user))
         }
     }
     
-    func signUp(with user: UserModel, _ password: String, completion: @escaping (AuthDataResult?) -> Void) {
-        manager.createUser(withEmail: user.email, password: password) { value, error in
-            guard let value = value else {
-                completion(nil)
+    func requestSignUp(with signUpUserModel: SignUpUserModel,
+                       completion: @escaping (Result<StoredUserModel>) -> Void
+    ) {
+        manager.createUser(withEmail: signUpUserModel.email, password: signUpUserModel.password) { value, error in
+            guard let uid = value?.user.uid else {
+                completion(.failure(ErrorCode.notFoundUser))
                 return
             }
-//            var attendance = [String: Bool]()
-//            (0..<10).forEach {
-//                attendance.updateValue(false, forKey: "\($0)")
-//            }
-            let userData: [String: Any] = [
-                "email": user.email,
-                "name": user.name,
-                "position": user.position,
-                "isManager": false,
-                "attendance": []
-            ]
-            Database.database().reference().child("users").child(value.user.uid).setValue(userData)
-            completion(value)
+            let userModel = StoredUserModel(email: signUpUserModel.email,
+                                            name: signUpUserModel.name,
+                                            position: signUpUserModel.position,
+                                            isManager: false,
+                                            uid: uid,
+                                            attendance: [String: String]())
+            completion(.success(userModel))
         }
     }
     
-    func signOut(completion: @escaping (Bool) -> Void) {
+    func requestSignOut(completion: @escaping (Result<Void>) -> Void) {
         do {
             try manager.signOut()
-            completion(true)
+            completion(.success(Void()))
         } catch {
-            print(error)
-            completion(false)
+            completion(.failure(error))
         }
     }
+
+    func storeUserAccount(with userModel: StoredUserModel) {
+        /// Firebase Database에 적재하기 위해서는 NSNumber, NSString, NSDictionary, and NSArray 을 준수하여야 함
+        let userData: [String: Any] = [
+            "email": userModel.email,
+            "name": userModel.name,
+            "position": userModel.position,
+            "isManager": userModel.isManager,
+            "attendance": userModel.attendance
+        ]
+        database
+            .child(FirebasePath.users.rawValue)
+            .child(userModel.uid)
+            .setValue(userData)
+    }
     
-    func checkAdminAccunt(completion: @escaping (LoginStatus) -> Void) {
+    func verifyAccountType(completion: @escaping (Result<AccountType>) -> Void) {
         guard let uid = manager.currentUser?.uid else {
-            completion(LoginStatus.failure)
+            completion(.failure(ErrorCode.notExistedUid))
             return
         }
         database
-            .child("users")
+            .child(FirebasePath.users.rawValue)
             .child(uid)
             .observeSingleEvent(of: .value, with: { snapshot in
                 let value = snapshot.value as? NSDictionary
                 if let isManager = value?["isManager"] as? Bool {
-                    isManager
-                        ? completion(LoginStatus.admin)
-                        : completion(LoginStatus.default)
+                    let loginStatus = isManager
+                        ? AccountType.admin
+                        : AccountType.default
+                    completion(.success(loginStatus))
                 } else {
-                    completion(LoginStatus.failure)
+                    completion(.failure(ErrorCode.notExistedAccountType))
                 }
             }) { error in
-                print(error.localizedDescription)
-                completion(LoginStatus.failure)
+                completion(.failure(error))
         }
     }
     
-    func attendance(userId: String, isLate: Bool, timeStamp: Int64, completion: @escaping(Bool) -> Void) {
+    func requestAttendance(userId: String,
+                           isLate: Bool,
+                           timeStamp: Int64,
+                           completion: @escaping(Bool) -> Void
+    ) {
         let attendance: [String: String] = [
             "result": isLate ? "1" : "0"
         ]
         database
-            .child("users")
+            .child(FirebasePath.users.rawValue)
             .child(userId)
-            .child("attendance")
+            .child(FirebasePath.attendance.rawValue)
             .child("\(timeStamp)")
             .setValue(attendance, withCompletionBlock: { error, _ in
                 completion(error == nil)
@@ -107,7 +129,7 @@ class Firebase {
     }
     
     func fetchCurriculumList(completion: @escaping ([Curriculum]?) -> Void) {
-        database.child("curriculum")
+        database.child(FirebasePath.curriculum.rawValue)
             .observeSingleEvent(of: .value) { snapshot in
                 guard
                     let value = snapshot.value,
@@ -130,7 +152,7 @@ class Firebase {
         let storage = Storage.storage()
         let pathReference = storage.reference(withPath: "banner/banner.png")
         
-        database.child("banner")
+        database.child(FirebasePath.banner.rawValue)
             .observeSingleEvent(of: .value) { snapshot in
                 guard let value = snapshot.value, let result = value as? [String: String] else {
                     completion(nil)
@@ -146,10 +168,12 @@ class Firebase {
                 }
         }
     }
-    
-    func getUser<T: Decodable>(name userName: String, completion: @escaping(APIAttendanceResult<T>) -> Void) {
+
+    func fetchUserAttendanceList(name userName: String,
+                                 completion: @escaping(Result<AttendanceStatusModel>) -> Void
+    ) {
         database
-            .child("users")
+            .child(FirebasePath.users.rawValue)
             .observeSingleEvent(of: .value, with: { snapshot in
                 guard
                     let value = snapshot.value,
@@ -163,15 +187,14 @@ class Firebase {
                 
                 if let targetUser = targetUser {
                     do {
-                        let jsonData = try JSONSerialization.data(withJSONObject: targetUser, options: .prettyPrinted)
-                        let decoded = try JSONDecoder().decode(AttendanceStatusModel.self, from: jsonData)
-                        completion(.success(decoded))
+                        let decodedValue = try FirebaseDecoder<AttendanceStatusModel>(from: targetUser)
+                            .decode()
+                        completion(.success(decodedValue))
                     } catch {
-                        completion(.failure(.data))
+                        completion(.failure(error))
                     }
                 } else {
-                    print("not found user")
-                    completion(.failure(.data))
+                    completion(.failure(ErrorCode.notFoundUser))
                 }
             })
     }

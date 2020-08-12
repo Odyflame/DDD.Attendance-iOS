@@ -24,10 +24,10 @@ protocol SearchUsersViewModelTypes {
 }
 
 class SearchUsersViewModel {
-    private let firebase: Firebase
+    private let firebase: FirebaseClient
     private let userProperty = MutableProperty<AttendanceStatusModel?>(nil)
     
-    init(firebase: Firebase = Firebase()) {
+    init(firebase: FirebaseClient = FirebaseClient()) {
         self.firebase = firebase
     }
 }
@@ -40,10 +40,10 @@ extension SearchUsersViewModel: SearchUsersViewModelTypes {
 
 extension SearchUsersViewModel: SearchUsersViewModelInputs {
     func remoteAttendanceStatus(name userName: String) {
-        firebase.getUser(name: userName) { [weak self] (result: APIAttendanceResult<AttendanceStatusModel>) in
+        firebase.fetchUserAttendanceList(name: userName) { [weak self] result in
             switch result {
-            case .success(let result):
-                self?.userProperty.value = result
+            case .success(let value):
+                self?.userProperty.value = value
             case .failure(let error):
                 print("사용자 검색 에러 - \(error)")
             }

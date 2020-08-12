@@ -106,9 +106,9 @@ class SignUpViewModel {
     
     let (alertSignal, alertObserver) = Signal<String, Never>.pipe()
     
-    private let firebase: Firebase
+    private let firebase: FirebaseClient
     
-    init(firebase: Firebase = Firebase()) {
+    init(firebase: FirebaseClient = FirebaseClient()) {
         self.firebase = firebase
     }
     
@@ -117,21 +117,25 @@ class SignUpViewModel {
     }
     
     func pressSignUpButton() {
-        let user = UserModel(email: email.value ?? "",
-                             name: (lastName.value ?? "") + (firstName.value ?? ""),
-                             position: position.value.name,
-                             isManager: false)
-        signUpFirebase(with: user, password.value ?? "")
+        let user = SignUpUserModel(email: email.value ?? "",
+                                   password: password.value ?? "",
+                                   name: (lastName.value ?? "") + (firstName.value ?? ""),
+                                   position: position.value.name,
+                                   isManager: false)
+        postSignUp(with: user)
     }
 }
 
 private extension SignUpViewModel {
-    func signUpFirebase(with user: UserModel, _ password: String) {
-        firebase.signUp(with: user, password) { [weak self] result in
-            if result?.user != nil {
+    func postSignUp(with signUpUserModel: SignUpUserModel) {
+        firebase.requestSignUp(with: signUpUserModel) { [weak self] result in
+            switch result {
+            case .success(let userModel):
                 self?.step.value = .StepFour
-            } else {
+                self?.firebase.storeUserAccount(with: userModel)
+            case .failure(let error):
                 self?.alertObserver.send(value: "서버 오류입니다. 잠시 후에 다시 시도해주세요.")
+                print(error)
             }
         }
     }

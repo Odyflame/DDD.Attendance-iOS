@@ -14,7 +14,7 @@ class ScannerViewController: BaseViewController {
 
     private var captureSession: AVCaptureSession!
     private var previewLayer: AVCaptureVideoPreviewLayer!
-    private let firebase = Firebase()
+    private let firebase = FirebaseClient()
     var attendanceTimeStamp: Int64? {
         didSet {
             descriptionLabel.text = "설정한 출석체크 시간은 \n\(Date().timeStampToString(timeStamp: attendanceTimeStamp ?? 0).dateAndTimetoString())입니다."
@@ -138,7 +138,7 @@ private extension ScannerViewController {
         guard let attendanceTimeStamp = attendanceTimeStamp else { return }
         let currentTimeStamp = Date().getTimeStamp()
         let isLate = currentTimeStamp > attendanceTimeStamp
-        firebase.attendance(userId: userId, isLate: isLate, timeStamp: currentTimeStamp) { [weak self] result in
+        firebase.requestAttendance(userId: userId, isLate: isLate, timeStamp: currentTimeStamp) { [weak self] result in
             self?.showResult(result: result)
         }
     }

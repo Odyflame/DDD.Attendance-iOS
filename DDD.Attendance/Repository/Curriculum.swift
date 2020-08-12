@@ -17,6 +17,4 @@ struct Curriculum: Codable {
     let isDone: Bool
     
     let index: Int
-    
-//    let isAttend: Bool
 }

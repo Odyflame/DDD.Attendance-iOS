@@ -22,9 +22,11 @@ protocol LoginPopupViewModelOutputs {
     
     var loginAccount: Signal<LoginPopupViewModel.Account, Never> { get }
     
-    var loginResult: Signal<Firebase.LoginStatus, Never> { get }
+    var loginSuccess: Signal<FirebaseClient.AccountType, Never> { get }
     
     var isValidAccount: Signal<Bool, Never> { get }
+
+    var loginFailure: Signal<Error, Never> { get }
 }
 
 protocol LoginPopupViewModelTypes {
@@ -38,16 +40,17 @@ class LoginPopupViewModel {
     
     typealias Account = (String, String)
     
-    private let firebase: Firebase
+    private let firebase: FirebaseClient
     private let isValidAccountProperty = MutableProperty<Bool?>(nil)
     private let pressLoginButtonProperty = MutableProperty<Void?>(nil)
     private let emailProperty = MutableProperty<String>("")
     private let passwordProperty = MutableProperty<String>("")
-    private let loginResultProperty = MutableProperty<Firebase.LoginStatus?>(nil)
+    private let accountTypeProperty = MutableProperty<FirebaseClient.AccountType?>(nil)
+    private let loginFailureProperty = MutableProperty<Error?>(nil)
     
-    init(firebase: Firebase = Firebase()) {
+    init(firebase: FirebaseClient = FirebaseClient()) {
         self.firebase = firebase
-        self.checkLoginSession()
+//        self.checkLoginSession()
     }
 }
 
@@ -86,49 +89,46 @@ extension LoginPopupViewModel: LoginPopupViewModelOutputs {
             }
     }
     
-    var loginResult: Signal<Firebase.LoginStatus, Never> {
-        return loginResultProperty.signal.skipNil()
+    var loginSuccess: Signal<FirebaseClient.AccountType, Never> {
+        return accountTypeProperty.signal.skipNil()
     }
     
     var isValidAccount: Signal<Bool, Never> {
         return emailProperty.signal
             .combineLatest(with: passwordProperty.signal)
-            .filterMap { [unowned self] (email, password) in
+            .compactMap { [unowned self] (email, password) in
                 let isValid = self.validateEmail(from: email) && self.validatePassword(from: password)
                 self.isValidAccountProperty.value = isValid
                 return isValid
         }
+    }
+
+    var loginFailure: Signal<Error, Never> {
+        return loginFailureProperty.signal.skipNil()
     }
 }
 
 private extension LoginPopupViewModel {
     
     func loginFirebase(with email: String, _ password: String) {
-        firebase.login(with: email, password) { [weak self] result in
-            if result?.user != nil {
-                self?.fetchLoginStatus { status in
-                     self?.loginResultProperty.value = status
-                }
-            } else {
-                self?.loginResultProperty.value = .failure
+        firebase.requestSignIn(with: email, password) { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.fetchLoginStatus()
+            case .failure(let error):
+                self?.loginFailureProperty.value = error
             }
         }
     }
     
-    func fetchLoginStatus(completion: @escaping (Firebase.LoginStatus) -> Void) {
-        firebase.checkAdminAccunt { status in
-            completion(status)
-        }
-    }
-    
-    func checkLoginSession() {
-        let activityData = ActivityData(type: .pacman)
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        fetchLoginStatus { [weak self] status  in
-            if status != .failure {
-                self?.loginResultProperty.value = status
+    func fetchLoginStatus() {
+        firebase.verifyAccountType { [weak self] result in
+            switch result {
+            case .success(let accountType):
+                self?.accountTypeProperty.value = accountType
+            case .failure(let error):
+                self?.loginFailureProperty.value = error
             }
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
         }
     }
     

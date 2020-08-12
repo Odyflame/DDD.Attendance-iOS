@@ -19,7 +19,8 @@ class LoginPopupView: BaseView {
     
     private let viewModel = LoginPopupViewModel()
     
-    var resultHandler: ((Firebase.LoginStatus) -> Void)?
+    var loginSuccessHandler: ((FirebaseClient.AccountType) -> Void)?
+    var loginFailureHandler: ((Error) -> Void)?
     
     override func bindData() {
         super.bindData()
@@ -45,7 +46,9 @@ class LoginPopupView: BaseView {
         
         reactive.requestFirebaseAuth <~ viewModel.outputs.loginAccount
         
-        reactive.loginResultHandler <~ viewModel.outputs.loginResult
+        reactive.loginSuccessHandler <~ viewModel.outputs.loginSuccess
+
+        reactive.loginFailureHandler <~ viewModel.outputs.loginFailure
         
         reactive.isEnabledLoginButton <~ viewModel.outputs.isValidAccount
         
@@ -113,10 +116,16 @@ extension Reactive where Base: LoginPopupView {
         })
     }
     
-    var loginResultHandler: BindingTarget<Firebase.LoginStatus> {
+    var loginSuccessHandler: BindingTarget<FirebaseClient.AccountType> {
         return makeBindingTarget({ base, status in
-            base.resultHandler?(status)
+            base.loginSuccessHandler?(status)
         })
+    }
+
+    var loginFailureHandler: BindingTarget<Error> {
+        return makeBindingTarget { base, error in
+            base.loginFailureHandler?(error)
+        }
     }
     
     var checkValidAccount: BindingTarget<(String, String)> {
