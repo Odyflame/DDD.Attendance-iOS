@@ -10,6 +10,7 @@ import UIKit
 import ReactiveCocoa
 import ReactiveSwift
 import NVActivityIndicatorView
+import NVActivityIndicatorViewExtended
 
 class LoginPopupViewController: BaseViewController {
 

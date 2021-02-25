@@ -12,6 +12,7 @@ import ReactiveCocoa
 import ReactiveSwift
 import SnapKit
 import NVActivityIndicatorView
+import NVActivityIndicatorViewExtended
 
 class StepThreeView: BaseView {
 

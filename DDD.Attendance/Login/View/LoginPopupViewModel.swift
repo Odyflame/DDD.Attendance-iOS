@@ -6,8 +6,10 @@
 //  Copyright © 2019 DDD. All rights reserved.
 //
 
+import UIKit
 import ReactiveSwift
 import NVActivityIndicatorView
+import NVActivityIndicatorViewExtended
 
 protocol LoginPopupViewModelInputs {
     
