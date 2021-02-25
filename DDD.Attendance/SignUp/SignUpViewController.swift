@@ -12,6 +12,7 @@ import SnapKit
 import ReactiveSwift
 import ReactiveCocoa
 import NVActivityIndicatorView
+import NVActivityIndicatorViewExtended
 
 protocol SignUpViewScrollDelegate: class {
     func setContentOffset(point: CGPoint, animated: Bool)
@@ -54,6 +55,7 @@ class SignUpViewController: BaseViewController {
         viewModel.alertSignal
             .observe(on: UIScheduler())
             .observeValues { [weak self] errMsg in
+                
                 NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                 self?.showAlert(title: "회원 가입 실패", message: errMsg)
         }

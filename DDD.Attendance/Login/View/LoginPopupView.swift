@@ -10,6 +10,7 @@ import UIKit
 import ReactiveSwift
 import FirebaseAuth
 import NVActivityIndicatorView
+import NVActivityIndicatorViewExtended
 
 class LoginPopupView: BaseView {
 
