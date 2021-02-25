@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,9 +14,6 @@
 		20B81DFB232D54E20081D341 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B81DFA232D54E20081D341 /* RoundedTextField.swift */; };
 		4626117224ACCBC0006D8EC8 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464B32EC24AB415800793872 /* PushKit.framework */; };
 		462EF76424B9B9590009768C /* ImageScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462EF76324B9B9590009768C /* ImageScrollViewController.swift */; };
-		462FDFD624ACD978003DF1AA /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC7E4AB3235F5C7700A314DA /* FirebaseStorage.framework */; };
-		46337A7A249A697E00AF4FA4 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0C4F4D23746C8900DA85B0 /* Protobuf.framework */; };
-		46337A7D249A697F00AF4FA4 /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3E50C9232A973D00B56EBF /* TextFieldEffects.framework */; };
 		46481EA1249DF5E700F3DB02 /* Manager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46481EA0249DF5E700F3DB02 /* Manager.storyboard */; };
 		46481EA3249DF80100F3DB02 /* SetAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46481EA2249DF80100F3DB02 /* SetAttendanceViewController.swift */; };
 		4648F77724BB16040084B2A2 /* ManagerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4648F77624BB16040084B2A2 /* ManagerHomeViewController.swift */; };
@@ -37,22 +34,8 @@
 		4678E3A324B9B546005DCD5A /* Onboarding1.json in Resources */ = {isa = PBXBuildFile; fileRef = 4678E3A124B9B546005DCD5A /* Onboarding1.json */; };
 		4678E3A424B9B546005DCD5A /* Onboarding2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4678E3A224B9B546005DCD5A /* Onboarding2.json */; };
 		46AD886324A4DAFA0036B4AF /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AD886224A4DAFA0036B4AF /* BannerModel.swift */; };
-		BC0C4F4B2374521600DA85B0 /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0C4F4A2374521600DA85B0 /* FirebaseMessaging.framework */; };
-		BC0C4F4C23746C8900DA85B0 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC10145D232E24FE0096E962 /* FirebaseInstanceID.framework */; };
-		BC10146D232E24FF0096E962 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC10145F232E24FE0096E962 /* GTMSessionFetcher.framework */; };
-		BC10146E232E24FF0096E962 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC101460232E24FE0096E962 /* FirebaseDatabase.framework */; };
-		BC10146F232E24FF0096E962 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC101461232E24FE0096E962 /* FirebaseCore.framework */; };
-		BC101470232E24FF0096E962 /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC101462232E24FE0096E962 /* FirebaseAuth.framework */; };
-		BC101471232E24FF0096E962 /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC101463232E24FE0096E962 /* FIRAnalyticsConnector.framework */; };
-		BC101472232E24FF0096E962 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC101464232E24FE0096E962 /* GoogleUtilities.framework */; };
-		BC101476232E24FF0096E962 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC101468232E24FE0096E962 /* FirebaseAnalytics.framework */; };
 		BC101478232E25DF0096E962 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BC101477232E25DF0096E962 /* libc++.tbd */; };
 		BC10147A232E25E80096E962 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BC101479232E25E80096E962 /* libsqlite3.tbd */; };
-		BC101480232E26130096E962 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC10147B232E26130096E962 /* leveldb-library.framework */; };
-		BC101481232E26130096E962 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC10147C232E26130096E962 /* nanopb.framework */; };
-		BC101482232E26130096E962 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC10147D232E26130096E962 /* GoogleAppMeasurement.framework */; };
-		BC101483232E26130096E962 /* GoogleDataTransportCCTSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC10147E232E26130096E962 /* GoogleDataTransportCCTSupport.framework */; };
-		BC101484232E26130096E962 /* GoogleDataTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC10147F232E26130096E962 /* GoogleDataTransport.framework */; };
 		BC101489232E2D110096E962 /* LoginPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC101488232E2D110096E962 /* LoginPopupView.xib */; };
 		BC10148B232E2D1C0096E962 /* LoginPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC10148A232E2D1C0096E962 /* LoginPopupView.swift */; };
 		BC10148D232E32810096E962 /* LoginTransitionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC10148C232E32810096E962 /* LoginTransitionCoordinator.swift */; };
@@ -83,18 +66,12 @@
 		BC886401235B5BA00031C7F1 /* UIVIewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC886400235B5BA00031C7F1 /* UIVIewController+Extension.swift */; };
 		BC886403235C6FD60031C7F1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC886402235C6FD60031C7F1 /* Date+Extension.swift */; };
 		BCDE47502379A990009CEAC2 /* Curriculum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDE474F2379A990009CEAC2 /* Curriculum.swift */; };
-		BCDE47532379BD97009CEAC2 /* CodableFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDE47512379BD97009CEAC2 /* CodableFirebase.framework */; };
-		BCDE47542379BD97009CEAC2 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDE47522379BD97009CEAC2 /* Lottie.framework */; };
 		BCE1B3BB231BB68D001BB684 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B3BA231BB68D001BB684 /* AppDelegate.swift */; };
 		BCE1B3C2231BB68F001BB684 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE1B3C1231BB68F001BB684 /* Assets.xcassets */; };
 		BCE1B3C5231BB68F001BB684 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCE1B3C3231BB68F001BB684 /* LaunchScreen.storyboard */; };
 		BCE1B3CF231BB75E001BB684 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B3CE231BB75E001BB684 /* BaseViewController.swift */; };
 		BCE1B3D2231BB79D001BB684 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCE1B3D1231BB79D001BB684 /* Home.storyboard */; };
 		BCE1B3D4231BB7BC001BB684 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B3D3231BB7BC001BB684 /* HomeViewController.swift */; };
-		BCE1B3D9231BB858001BB684 /* ReactiveMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE1B3D6231BB858001BB684 /* ReactiveMapKit.framework */; };
-		BCE1B3DA231BB858001BB684 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE1B3D7231BB858001BB684 /* ReactiveSwift.framework */; };
-		BCE1B3DB231BB858001BB684 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE1B3D8231BB858001BB684 /* ReactiveCocoa.framework */; };
-		BCE1B3DE231BD8E1001BB684 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE1B3DD231BD8E1001BB684 /* Alamofire.framework */; };
 		BCE1B3E5231BE069001BB684 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B3E4231BE069001BB684 /* BaseView.swift */; };
 		BCE1B3ED231BE383001BB684 /* BaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B3EC231BE383001BB684 /* BaseDataSource.swift */; };
 		BCE1B3EF231BE39C001BB684 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B3EE231BE39C001BB684 /* BaseCell.swift */; };
@@ -107,7 +84,6 @@
 		BCE1B4102320034F001BB684 /* AttendanceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B40E2320034F001BB684 /* AttendanceListCell.swift */; };
 		BCE1B4112320034F001BB684 /* AttendanceListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE1B40F2320034F001BB684 /* AttendanceListCell.xib */; };
 		BCE1B4132320054F001BB684 /* AttendanceListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE1B4122320054F001BB684 /* AttendanceListModel.swift */; };
-		E571F75F2323F08700816C04 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E571F75E2323F08700816C04 /* SnapKit.framework */; };
 		E571F7652324024D00816C04 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571F7642324024D00816C04 /* Storyboard.swift */; };
 		E571F767232402D200816C04 /* ReuseableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571F766232402D200816C04 /* ReuseableView.swift */; };
 		E571F76A2324033B00816C04 /* PresentingViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571F7692324033B00816C04 /* PresentingViewAnimator.swift */; };
@@ -118,9 +94,19 @@
 		E571F77723241F5300816C04 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E571F77623241F5300816C04 /* Account.storyboard */; };
 		E571F77A2324345400816C04 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571F7792324345400816C04 /* UIView+Extension.swift */; };
 		E571F77C23243D7600816C04 /* HomeTransitionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571F77B23243D7600816C04 /* HomeTransitionCoordinator.swift */; };
+		E9DEB98425E5E29200EDC182 /* ReactiveCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEB98325E5E29200EDC182 /* ReactiveCocoa */; };
+		E9DEB98825E5E3AE00EDC182 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEB98725E5E3AE00EDC182 /* Alamofire */; };
+		E9DEB98C25E5E7E000EDC182 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEB98B25E5E7E000EDC182 /* SnapKit */; };
+		E9DEBA0A25E6643F00EDC182 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEBA0925E6643F00EDC182 /* Lottie */; };
+		E9DEBA0E25E6647900EDC182 /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEBA0D25E6647900EDC182 /* CodableFirebase */; };
+		E9DEBA1225E664AA00EDC182 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEBA1125E664AA00EDC182 /* TextFieldEffects */; };
+		E9DEBA2D25E6714E00EDC182 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEBA2C25E6714E00EDC182 /* NVActivityIndicatorView */; };
+		E9DEBA2F25E6714E00EDC182 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEBA2E25E6714E00EDC182 /* NVActivityIndicatorViewExtended */; };
+		F0B07994B95F822BDC801493 /* Pods_DDD_Attendance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A2C0DC3A07D218B163C43E /* Pods_DDD_Attendance.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		168DF1228F6E1BC993EB16A5 /* Pods-DDD.Attendance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDD.Attendance.release.xcconfig"; path = "Target Support Files/Pods-DDD.Attendance/Pods-DDD.Attendance.release.xcconfig"; sourceTree = "<group>"; };
 		204FC78E236084D100AE693A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		2057031E232E2B0200103A3E /* SignUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpButton.swift; sourceTree = "<group>"; };
 		20570322232E439900103A3E /* PositionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionCardView.swift; sourceTree = "<group>"; };
@@ -148,25 +134,11 @@
 		4678E3A124B9B546005DCD5A /* Onboarding1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding1.json; sourceTree = "<group>"; };
 		4678E3A224B9B546005DCD5A /* Onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Onboarding2.json; sourceTree = "<group>"; };
 		46AD886224A4DAFA0036B4AF /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
-		BC0C4F4823744E4100DA85B0 /* FirebaseInAppMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInAppMessaging.framework; path = Carthage/Build/iOS/FirebaseInAppMessaging.framework; sourceTree = "<group>"; };
-		BC0C4F4A2374521600DA85B0 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMessaging.framework; path = Carthage/Build/iOS/FirebaseMessaging.framework; sourceTree = "<group>"; };
-		BC0C4F4D23746C8900DA85B0 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Protobuf.framework; path = Carthage/Build/iOS/Protobuf.framework; sourceTree = "<group>"; };
+		55C009CBB46EA6BB41966753 /* Pods-DDD.Attendance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDD.Attendance.debug.xcconfig"; path = "Target Support Files/Pods-DDD.Attendance/Pods-DDD.Attendance.debug.xcconfig"; sourceTree = "<group>"; };
+		65A2C0DC3A07D218B163C43E /* Pods_DDD_Attendance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDD_Attendance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC0C4F4F23746EEF00DA85B0 /* DDD.Attendance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDD.Attendance.entitlements; sourceTree = "<group>"; };
-		BC10145D232E24FE0096E962 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Carthage/Build/iOS/FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		BC10145F232E24FE0096E962 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = Carthage/Build/iOS/GTMSessionFetcher.framework; sourceTree = "<group>"; };
-		BC101460232E24FE0096E962 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Carthage/Build/iOS/FirebaseDatabase.framework; sourceTree = "<group>"; };
-		BC101461232E24FE0096E962 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Carthage/Build/iOS/FirebaseCore.framework; sourceTree = "<group>"; };
-		BC101462232E24FE0096E962 /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Carthage/Build/iOS/FirebaseAuth.framework; sourceTree = "<group>"; };
-		BC101463232E24FE0096E962 /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = Carthage/Build/iOS/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
-		BC101464232E24FE0096E962 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Carthage/Build/iOS/GoogleUtilities.framework; sourceTree = "<group>"; };
-		BC101468232E24FE0096E962 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Carthage/Build/iOS/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		BC101477232E25DF0096E962 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		BC101479232E25E80096E962 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		BC10147B232E26130096E962 /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "leveldb-library.framework"; path = "Carthage/Build/iOS/leveldb-library.framework"; sourceTree = "<group>"; };
-		BC10147C232E26130096E962 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = Carthage/Build/iOS/nanopb.framework; sourceTree = "<group>"; };
-		BC10147D232E26130096E962 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppMeasurement.framework; path = Carthage/Build/iOS/GoogleAppMeasurement.framework; sourceTree = "<group>"; };
-		BC10147E232E26130096E962 /* GoogleDataTransportCCTSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransportCCTSupport.framework; path = Carthage/Build/iOS/GoogleDataTransportCCTSupport.framework; sourceTree = "<group>"; };
-		BC10147F232E26130096E962 /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransport.framework; path = Carthage/Build/iOS/GoogleDataTransport.framework; sourceTree = "<group>"; };
 		BC101488232E2D110096E962 /* LoginPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginPopupView.xib; sourceTree = "<group>"; };
 		BC10148A232E2D1C0096E962 /* LoginPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPopupView.swift; sourceTree = "<group>"; };
 		BC10148C232E32810096E962 /* LoginTransitionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTransitionCoordinator.swift; sourceTree = "<group>"; };
@@ -189,8 +161,6 @@
 		BC3E50C3232A5FBC00B56EBF /* StepFourView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepFourView.xib; sourceTree = "<group>"; };
 		BC3E50C5232A5FC800B56EBF /* StepFourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepFourView.swift; sourceTree = "<group>"; };
 		BC3E50C7232A6D6C00B56EBF /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
-		BC3E50C9232A973D00B56EBF /* TextFieldEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextFieldEffects.framework; path = Carthage/Build/iOS/TextFieldEffects.framework; sourceTree = "<group>"; };
-		BC7E4AB3235F5C7700A314DA /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Carthage/Build/iOS/FirebaseStorage.framework; sourceTree = "<group>"; };
 		BC7E4AB5235F5F7F00A314DA /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		BC8863F4234E36C50031C7F1 /* LoginDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataSource.swift; sourceTree = "<group>"; };
 		BC8863F9234E36FE0031C7F1 /* PosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCell.swift; sourceTree = "<group>"; };
@@ -199,8 +169,6 @@
 		BC886400235B5BA00031C7F1 /* UIVIewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Extension.swift"; sourceTree = "<group>"; };
 		BC886402235C6FD60031C7F1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		BCDE474F2379A990009CEAC2 /* Curriculum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curriculum.swift; sourceTree = "<group>"; };
-		BCDE47512379BD97009CEAC2 /* CodableFirebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CodableFirebase.framework; path = Carthage/Build/iOS/CodableFirebase.framework; sourceTree = "<group>"; };
-		BCDE47522379BD97009CEAC2 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		BCE1B3B7231BB68D001BB684 /* DDD.Attendance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDD.Attendance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE1B3BA231BB68D001BB684 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCE1B3C1231BB68F001BB684 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -209,10 +177,6 @@
 		BCE1B3CE231BB75E001BB684 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BCE1B3D1231BB79D001BB684 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		BCE1B3D3231BB7BC001BB684 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		BCE1B3D6231BB858001BB684 /* ReactiveMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveMapKit.framework; path = Carthage/Build/iOS/ReactiveMapKit.framework; sourceTree = "<group>"; };
-		BCE1B3D7231BB858001BB684 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
-		BCE1B3D8231BB858001BB684 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
-		BCE1B3DD231BD8E1001BB684 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		BCE1B3E4231BE069001BB684 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		BCE1B3EC231BE383001BB684 /* BaseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataSource.swift; sourceTree = "<group>"; };
 		BCE1B3EE231BE39C001BB684 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
@@ -225,7 +189,6 @@
 		BCE1B40E2320034F001BB684 /* AttendanceListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceListCell.swift; sourceTree = "<group>"; };
 		BCE1B40F2320034F001BB684 /* AttendanceListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttendanceListCell.xib; sourceTree = "<group>"; };
 		BCE1B4122320054F001BB684 /* AttendanceListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceListModel.swift; sourceTree = "<group>"; };
-		E571F75E2323F08700816C04 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		E571F7642324024D00816C04 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		E571F766232402D200816C04 /* ReuseableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseableView.swift; sourceTree = "<group>"; };
 		E571F7692324033B00816C04 /* PresentingViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentingViewAnimator.swift; sourceTree = "<group>"; };
@@ -243,33 +206,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCDE47532379BD97009CEAC2 /* CodableFirebase.framework in Frameworks */,
-				BCDE47542379BD97009CEAC2 /* Lottie.framework in Frameworks */,
-				BC0C4F4C23746C8900DA85B0 /* FirebaseInstanceID.framework in Frameworks */,
-				BC101472232E24FF0096E962 /* GoogleUtilities.framework in Frameworks */,
-				BC0C4F4B2374521600DA85B0 /* FirebaseMessaging.framework in Frameworks */,
-				BC101480232E26130096E962 /* leveldb-library.framework in Frameworks */,
-				BC101481232E26130096E962 /* nanopb.framework in Frameworks */,
-				BC101482232E26130096E962 /* GoogleAppMeasurement.framework in Frameworks */,
-				BC101483232E26130096E962 /* GoogleDataTransportCCTSupport.framework in Frameworks */,
-				BC101484232E26130096E962 /* GoogleDataTransport.framework in Frameworks */,
+				E9DEB98825E5E3AE00EDC182 /* Alamofire in Frameworks */,
+				E9DEBA0A25E6643F00EDC182 /* Lottie in Frameworks */,
 				BC10147A232E25E80096E962 /* libsqlite3.tbd in Frameworks */,
+				E9DEB98425E5E29200EDC182 /* ReactiveCocoa in Frameworks */,
+				E9DEB98C25E5E7E000EDC182 /* SnapKit in Frameworks */,
+				E9DEBA1225E664AA00EDC182 /* TextFieldEffects in Frameworks */,
 				BC101478232E25DF0096E962 /* libc++.tbd in Frameworks */,
-				BC10146E232E24FF0096E962 /* FirebaseDatabase.framework in Frameworks */,
+				E9DEBA0E25E6647900EDC182 /* CodableFirebase in Frameworks */,
+				E9DEBA2D25E6714E00EDC182 /* NVActivityIndicatorView in Frameworks */,
+				E9DEBA2F25E6714E00EDC182 /* NVActivityIndicatorViewExtended in Frameworks */,
 				4626117224ACCBC0006D8EC8 /* PushKit.framework in Frameworks */,
-				462FDFD624ACD978003DF1AA /* FirebaseStorage.framework in Frameworks */,
-				BC101470232E24FF0096E962 /* FirebaseAuth.framework in Frameworks */,
-				BC10146F232E24FF0096E962 /* FirebaseCore.framework in Frameworks */,
-				BC101476232E24FF0096E962 /* FirebaseAnalytics.framework in Frameworks */,
-				BC10146D232E24FF0096E962 /* GTMSessionFetcher.framework in Frameworks */,
-				E571F75F2323F08700816C04 /* SnapKit.framework in Frameworks */,
-				46337A7D249A697F00AF4FA4 /* TextFieldEffects.framework in Frameworks */,
-				BCE1B3DE231BD8E1001BB684 /* Alamofire.framework in Frameworks */,
-				BCE1B3D9231BB858001BB684 /* ReactiveMapKit.framework in Frameworks */,
-				BCE1B3DA231BB858001BB684 /* ReactiveSwift.framework in Frameworks */,
-				46337A7A249A697E00AF4FA4 /* Protobuf.framework in Frameworks */,
-				BC101471232E24FF0096E962 /* FIRAnalyticsConnector.framework in Frameworks */,
-				BCE1B3DB231BB858001BB684 /* ReactiveCocoa.framework in Frameworks */,
+				F0B07994B95F822BDC801493 /* Pods_DDD_Attendance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +277,15 @@
 				4654355124C1FA0300541E14 /* AttendanceStatusHeader.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B1CE673E0D7FAC8D1964303F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				55C009CBB46EA6BB41966753 /* Pods-DDD.Attendance.debug.xcconfig */,
+				168DF1228F6E1BC993EB16A5 /* Pods-DDD.Attendance.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		BC101487232E2D020096E962 /* View */ = {
@@ -424,6 +381,7 @@
 				BCE1B3B9231BB68D001BB684 /* DDD.Attendance */,
 				BCE1B3B8231BB68D001BB684 /* Products */,
 				BCE1B3D5231BB858001BB684 /* Frameworks */,
+				B1CE673E0D7FAC8D1964303F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -489,33 +447,9 @@
 			isa = PBXGroup;
 			children = (
 				464B32EC24AB415800793872 /* PushKit.framework */,
-				BCDE47512379BD97009CEAC2 /* CodableFirebase.framework */,
-				BCDE47522379BD97009CEAC2 /* Lottie.framework */,
-				BC0C4F4D23746C8900DA85B0 /* Protobuf.framework */,
-				BC0C4F4A2374521600DA85B0 /* FirebaseMessaging.framework */,
-				BC0C4F4823744E4100DA85B0 /* FirebaseInAppMessaging.framework */,
-				BC7E4AB3235F5C7700A314DA /* FirebaseStorage.framework */,
 				BC101479232E25E80096E962 /* libsqlite3.tbd */,
 				BC101477232E25DF0096E962 /* libc++.tbd */,
-				BC10147D232E26130096E962 /* GoogleAppMeasurement.framework */,
-				BC10147F232E26130096E962 /* GoogleDataTransport.framework */,
-				BC10147E232E26130096E962 /* GoogleDataTransportCCTSupport.framework */,
-				BC10147B232E26130096E962 /* leveldb-library.framework */,
-				BC10147C232E26130096E962 /* nanopb.framework */,
-				BC101463232E24FE0096E962 /* FIRAnalyticsConnector.framework */,
-				BC101468232E24FE0096E962 /* FirebaseAnalytics.framework */,
-				BC101462232E24FE0096E962 /* FirebaseAuth.framework */,
-				BC101461232E24FE0096E962 /* FirebaseCore.framework */,
-				BC101460232E24FE0096E962 /* FirebaseDatabase.framework */,
-				BC10145D232E24FE0096E962 /* FirebaseInstanceID.framework */,
-				BC101464232E24FE0096E962 /* GoogleUtilities.framework */,
-				BC10145F232E24FE0096E962 /* GTMSessionFetcher.framework */,
-				BC3E50C9232A973D00B56EBF /* TextFieldEffects.framework */,
-				E571F75E2323F08700816C04 /* SnapKit.framework */,
-				BCE1B3DD231BD8E1001BB684 /* Alamofire.framework */,
-				BCE1B3D8231BB858001BB684 /* ReactiveCocoa.framework */,
-				BCE1B3D6231BB858001BB684 /* ReactiveMapKit.framework */,
-				BCE1B3D7231BB858001BB684 /* ReactiveSwift.framework */,
+				65A2C0DC3A07D218B163C43E /* Pods_DDD_Attendance.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -612,16 +546,27 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCE1B3C9231BB68F001BB684 /* Build configuration list for PBXNativeTarget "DDD.Attendance" */;
 			buildPhases = (
+				5EDF86032407E6162074FE35 /* [CP] Check Pods Manifest.lock */,
 				BCE1B3B3231BB68D001BB684 /* Sources */,
 				BCE1B3B4231BB68D001BB684 /* Frameworks */,
 				BCE1B3B5231BB68D001BB684 /* Resources */,
-				BCE1B3DC231BB85E001BB684 /* Carthage */,
+				F57DADA34A71F63BA9CBAEB7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DDD.Attendance;
+			packageProductDependencies = (
+				E9DEB98325E5E29200EDC182 /* ReactiveCocoa */,
+				E9DEB98725E5E3AE00EDC182 /* Alamofire */,
+				E9DEB98B25E5E7E000EDC182 /* SnapKit */,
+				E9DEBA0925E6643F00EDC182 /* Lottie */,
+				E9DEBA0D25E6647900EDC182 /* CodableFirebase */,
+				E9DEBA1125E664AA00EDC182 /* TextFieldEffects */,
+				E9DEBA2C25E6714E00EDC182 /* NVActivityIndicatorView */,
+				E9DEBA2E25E6714E00EDC182 /* NVActivityIndicatorViewExtended */,
+			);
 			productName = DDD.Attendance;
 			productReference = BCE1B3B7231BB68D001BB684 /* DDD.Attendance.app */;
 			productType = "com.apple.product-type.application";
@@ -655,6 +600,15 @@
 				Base,
 			);
 			mainGroup = BCE1B3AE231BB68D001BB684;
+			packageReferences = (
+				E9DEB98225E5E29200EDC182 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */,
+				E9DEB98625E5E3AE00EDC182 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E9DEB98A25E5E7E000EDC182 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				E9DEBA0825E6643F00EDC182 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				E9DEBA0C25E6647900EDC182 /* XCRemoteSwiftPackageReference "CodableFirebase" */,
+				E9DEBA1025E664AA00EDC182 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
+				E9DEBA2B25E6714D00EDC182 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+			);
 			productRefGroup = BCE1B3B8231BB68D001BB684 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -697,7 +651,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		BCE1B3DC231BB85E001BB684 /* Carthage */ = {
+		5EDF86032407E6162074FE35 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -705,26 +659,36 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/ReactiveMapKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/TextFieldEffects.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CHIPageControl.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/NVActivityIndicatorView.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Device.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CodableFirebase.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Lottie.framework",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = Carthage;
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DDD.Attendance-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F57DADA34A71F63BA9CBAEB7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DDD.Attendance/Pods-DDD.Attendance-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DDD.Attendance/Pods-DDD.Attendance-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DDD.Attendance/Pods-DDD.Attendance-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -930,13 +894,14 @@
 		};
 		BCE1B3CA231BB68F001BB684 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55C009CBB46EA6BB41966753 /* Pods-DDD.Attendance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DDD.Attendance/DDD.Attendance.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = B4JRVGF6UQ;
+				DEVELOPMENT_TEAM = M96L4WMU9C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -952,7 +917,7 @@
 					"$(OTHER_LDFLAGS)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ddd.DDDAttendance;
+				PRODUCT_BUNDLE_IDENTIFIER = odyflame.ddd.DDDAttendance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -962,13 +927,14 @@
 		};
 		BCE1B3CB231BB68F001BB684 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 168DF1228F6E1BC993EB16A5 /* Pods-DDD.Attendance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DDD.Attendance/DDD.Attendance.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = B4JRVGF6UQ;
+				DEVELOPMENT_TEAM = M96L4WMU9C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -984,7 +950,7 @@
 					"$(OTHER_LDFLAGS)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ddd.DDDAttendance;
+				PRODUCT_BUNDLE_IDENTIFIER = odyflame.ddd.DDDAttendance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1014,6 +980,108 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E9DEB98225E5E29200EDC182 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveCocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.1.0;
+			};
+		};
+		E9DEB98625E5E3AE00EDC182 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.1;
+			};
+		};
+		E9DEB98A25E5E7E000EDC182 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		E9DEBA0825E6643F00EDC182 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
+		E9DEBA0C25E6647900EDC182 /* XCRemoteSwiftPackageReference "CodableFirebase" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alickbass/CodableFirebase";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.2;
+			};
+		};
+		E9DEBA1025E664AA00EDC182 /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
+		E9DEBA2B25E6714D00EDC182 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E9DEB98325E5E29200EDC182 /* ReactiveCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9DEB98225E5E29200EDC182 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */;
+			productName = ReactiveCocoa;
+		};
+		E9DEB98725E5E3AE00EDC182 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9DEB98625E5E3AE00EDC182 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		E9DEB98B25E5E7E000EDC182 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9DEB98A25E5E7E000EDC182 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		E9DEBA0925E6643F00EDC182 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9DEBA0825E6643F00EDC182 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		E9DEBA0D25E6647900EDC182 /* CodableFirebase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9DEBA0C25E6647900EDC182 /* XCRemoteSwiftPackageReference "CodableFirebase" */;
+			productName = CodableFirebase;
+		};
+		E9DEBA1125E664AA00EDC182 /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9DEBA1025E664AA00EDC182 /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
+		};
+		E9DEBA2C25E6714E00EDC182 /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9DEBA2B25E6714D00EDC182 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
+		E9DEBA2E25E6714E00EDC182 /* NVActivityIndicatorViewExtended */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9DEBA2B25E6714D00EDC182 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorViewExtended;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BCE1B3AF231BB68D001BB684 /* Project object */;
 }

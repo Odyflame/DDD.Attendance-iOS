@@ -1,0 +1,79 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire",
+        "state": {
+          "branch": null,
+          "revision": "eaf6e622dd41b07b251d8f01752eab31bc811493",
+          "version": "5.4.1"
+        }
+      },
+      {
+        "package": "CodableFirebase",
+        "repositoryURL": "https://github.com/alickbass/CodableFirebase",
+        "state": {
+          "branch": null,
+          "revision": "a4cda89948db93ec21249a35ecdacab8c489a116",
+          "version": "0.2.2"
+        }
+      },
+      {
+        "package": "Lottie",
+        "repositoryURL": "https://github.com/airbnb/lottie-ios",
+        "state": {
+          "branch": null,
+          "revision": "b3c60ba1716baab6faeeb217d8ce1da336f92718",
+          "version": "3.2.1"
+        }
+      },
+      {
+        "package": "NVActivityIndicatorView",
+        "repositoryURL": "https://github.com/ninjaprox/NVActivityIndicatorView",
+        "state": {
+          "branch": null,
+          "revision": "bcb52371f2259254bac6690f92bb474a61768c47",
+          "version": "5.1.1"
+        }
+      },
+      {
+        "package": "ReactiveCocoa",
+        "repositoryURL": "https://github.com/ReactiveCocoa/ReactiveCocoa",
+        "state": {
+          "branch": null,
+          "revision": "cca8bdc26d10a889b8bec3cc2167544df730953e",
+          "version": "11.1.0"
+        }
+      },
+      {
+        "package": "ReactiveSwift",
+        "repositoryURL": "https://github.com/ReactiveCocoa/ReactiveSwift",
+        "state": {
+          "branch": null,
+          "revision": "e03cda84105ba707de039b757e2b2de868c65a3e",
+          "version": "6.5.0"
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit",
+        "state": {
+          "branch": null,
+          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+          "version": "5.0.1"
+        }
+      },
+      {
+        "package": "TextFieldEffects",
+        "repositoryURL": "https://github.com/raulriera/TextFieldEffects",
+        "state": {
+          "branch": null,
+          "revision": "7e563d4d6d755bb1ab6c1c049f8c215d7c489100",
+          "version": "1.7.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
