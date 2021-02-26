@@ -15,7 +15,7 @@ class LoginViewController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet private weak var loginPopupButton: UIButton!
-    @IBOutlet private weak var signUpButton: UIButton!
+    //@IBOutlet private weak var signUpButton: UIButton!
     
     private let transition = LoginTransitionCoordinator()
     private let dataSource = LoginDataSource()
@@ -56,6 +56,15 @@ class LoginViewController: BaseViewController {
             $0.layer.masksToBounds = true
             $0.layer.cornerRadius = 25
         }
+        let mas = NSMutableAttributedString(string: "로그인 하기", attributes: [
+                .font: UIFont(name:"GillSans-Bold", size:14)!,
+                .foregroundColor: UIColor.white,
+            ])
+            mas.addAttributes([
+                .strokeColor: UIColor.white,
+                .underlineStyle: NSUnderlineStyle.single.rawValue
+            ], range: NSMakeRange(0, mas.length))
+            self.loginPopupButton.setAttributedTitle(mas, for:.normal)
         
 //        pageControl.then {
 //            $0.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
@@ -78,8 +87,7 @@ class LoginViewController: BaseViewController {
         reactive.presentLoginPopupViewController <~ loginPopupButton.reactive
             .controlEvents(.touchUpInside)
         
-        reactive.presentSignUpViewController <~ signUpButton.reactive
-            .controlEvents(.touchUpInside)
+        //reactive.presentSignUpViewController <~ signUpButton.reactive.controlEvents(.touchUpInside)
     }
     
     override func viewDidLoad() {
@@ -139,5 +147,11 @@ extension LoginViewController: InteractiveTransitionableViewController {
     
     var interactiveDismissTransition: InteractiveAnimator? {
         return transition.interactiveDismissTransition
+    }
+}
+
+extension LoginViewController: AppleLoginDelegate {
+    func login(userIdentifier: String, name: String) {
+        
     }
 }

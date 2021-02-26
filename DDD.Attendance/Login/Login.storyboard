@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PSl-j4-jLv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PSl-j4-jLv">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ny7-TZ-qzY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ny7-TZ-qzY">
                                 <rect key="frame" x="109.5" y="522" width="156" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="156" id="KzA-UQ-ohC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                <state key="normal" title="Log in">
+                                <state key="normal" title="로그인 하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -95,40 +95,22 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EkI-m0-cH4">
-                                <rect key="frame" x="144" y="588" width="87" height="26.5"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="이메일로 회원가입">
-                                            <attributes>
-                                                <color key="NSColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" metaFont="controlContent"/>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                            </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zvf-SU-9Wt"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ny7-TZ-qzY" firstAttribute="centerX" secondItem="4lg-ZI-X4B" secondAttribute="centerX" id="1O4-LV-InV"/>
                             <constraint firstItem="PsM-ZM-jNS" firstAttribute="top" secondItem="Zvf-SU-9Wt" secondAttribute="top" priority="750" constant="102" id="F9e-6h-uSF"/>
                             <constraint firstItem="Ny7-TZ-qzY" firstAttribute="top" secondItem="PsM-ZM-jNS" secondAttribute="bottom" constant="20" id="FGu-MW-Lh4"/>
-                            <constraint firstItem="EkI-m0-cH4" firstAttribute="centerX" secondItem="Ny7-TZ-qzY" secondAttribute="centerX" id="aVI-5g-oz5"/>
                             <constraint firstItem="PsM-ZM-jNS" firstAttribute="leading" secondItem="Zvf-SU-9Wt" secondAttribute="leading" id="bS8-9c-cA9"/>
                             <constraint firstItem="PsM-ZM-jNS" firstAttribute="trailing" secondItem="Zvf-SU-9Wt" secondAttribute="trailing" id="dwG-85-PYW"/>
-                            <constraint firstItem="EkI-m0-cH4" firstAttribute="top" secondItem="Ny7-TZ-qzY" secondAttribute="bottom" constant="16" id="jz6-OX-5D0"/>
-                            <constraint firstItem="Zvf-SU-9Wt" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EkI-m0-cH4" secondAttribute="bottom" constant="20" id="pGa-jI-Ts2"/>
                             <constraint firstItem="PsM-ZM-jNS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Zvf-SU-9Wt" secondAttribute="top" constant="20" id="qNK-Hb-HJx"/>
                             <constraint firstItem="PsM-ZM-jNS" firstAttribute="centerX" secondItem="4lg-ZI-X4B" secondAttribute="centerX" id="wRU-Yj-ch1"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Zvf-SU-9Wt"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="PsM-ZM-jNS" id="6zJ-z0-2a7"/>
                         <outlet property="loginPopupButton" destination="Ny7-TZ-qzY" id="dlV-m5-vbz"/>
-                        <outlet property="signUpButton" destination="EkI-m0-cH4" id="530-5z-RTe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mfp-nx-M5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -172,6 +154,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="wgO-F1-rsA"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="5gt-Wh-9dW" secondAttribute="bottom" id="1is-xu-CGH"/>
@@ -179,7 +162,6 @@
                             <constraint firstItem="5gt-Wh-9dW" firstAttribute="top" secondItem="cQA-dO-PV0" secondAttribute="top" id="r0g-ud-hzY"/>
                             <constraint firstAttribute="trailing" secondItem="5gt-Wh-9dW" secondAttribute="trailing" id="tcG-gx-iEl"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="wgO-F1-rsA"/>
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="5gt-Wh-9dW" id="h46-uX-UQg"/>

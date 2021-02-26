@@ -39,11 +39,11 @@ class LoginPopupViewController: BaseViewController {
             }
         }
         
-        reactive.keyboardWillShow <~ NotificationCenter.default.reactive
-            .keyboard(.willShow)
-        
-        reactive.keyboardWillHide <~ NotificationCenter.default.reactive
-            .keyboard(.willHide)
+//        reactive.keyboardWillShow <~ NotificationCenter.default.reactive
+//            .keyboard(.willShow)
+//
+//        reactive.keyboardWillHide <~ NotificationCenter.default.reactive
+//            .keyboard(.willHide)
     }
 }
 

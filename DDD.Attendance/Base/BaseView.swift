@@ -15,6 +15,7 @@ class BaseView: UIView {
         commonInit()
         bindData()
         bindViewModel()
+        bindStyle()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,6 +28,8 @@ class BaseView: UIView {
     func bindViewModel() {}
     
     func bindData() {}
+    
+    func bindStyle() {}
 }
 
 private extension BaseView {

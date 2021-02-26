@@ -18,5 +18,6 @@ target 'DDD.Attendance' do
   pod 'Firebase/Storage'
   pod 'Firebase/Messaging'
   pod 'CHIPageControl', '~> 0.1.3'
+  pod 'GoogleSignIn'
 
 end

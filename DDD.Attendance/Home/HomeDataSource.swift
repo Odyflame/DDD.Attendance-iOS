@@ -16,7 +16,7 @@ class HomeDataSource: BaseDataSource {
     }
     
     enum HeaderTitle {
-        static let list = "4기 커리큘럼 리스트"
+        static let list = "5기 커리큘럼 리스트"
     }
     
     var imageTappedHandler: ((UIImage?) -> Void)?

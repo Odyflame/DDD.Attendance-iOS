@@ -11,12 +11,15 @@ import ReactiveSwift
 import FirebaseAuth
 import NVActivityIndicatorView
 import NVActivityIndicatorViewExtended
+import GoogleSignIn
 
 class LoginPopupView: BaseView {
 
     @IBOutlet private weak var idTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet weak var appleLoginButton: UIButton!
+    @IBOutlet weak var googleLoginButton: UIButton!
     
     private let viewModel = LoginPopupViewModel()
     
@@ -41,17 +44,28 @@ class LoginPopupView: BaseView {
     override func bindViewModel() {
         super.bindViewModel()
         
-        reactive.pressLoginButton <~ loginButton.reactive
-            .controlEvents(.touchUpInside)
+    
+        reactive.pressAppleLoginButton <~ appleLoginButton.reactive.controlEvents(.touchUpInside)
         
-        reactive.requestFirebaseAuth <~ viewModel.outputs.loginAccount
+        reactive.pressGoogleLoginButton <~ googleLoginButton.reactive.controlEvents(.touchUpInside)
         
-        reactive.loginResultHandler <~ viewModel.outputs.loginResult
-        
-        reactive.isEnabledLoginButton <~ viewModel.outputs.isValidAccount
-        
-        reactive.checkValidAccount <~ idTextField.reactive.continuousTextValues
-            .combineLatest(with: passwordTextField.reactive.continuousTextValues)
+//        reactive.pressLoginButton <~ loginButton.reactive
+//            .controlEvents(.touchUpInside)
+//
+//        reactive.requestFirebaseAuth <~ viewModel.outputs.loginAccount
+//
+//        reactive.loginResultHandler <~ viewModel.outputs.loginResult
+//
+//        reactive.isEnabledLoginButton <~ viewModel.outputs.isValidAccount
+//
+//        reactive.checkValidAccount <~ idTextField.reactive.continuousTextValues
+//            .combineLatest(with: passwordTextField.reactive.continuousTextValues)
+    }
+    
+    override func bindStyle() {
+        appleLoginButton.imageView?.image = UIImage(named: "signup_info")
+        appleLoginButton.layer.cornerRadius = 99
+        googleLoginButton.layer.cornerRadius = 99
     }
     
     func failureAction() {
@@ -65,6 +79,17 @@ private extension LoginPopupView {
     func pressLoginButton() {
         endEditing(true)
         viewModel.inputs.pressLoginButton()
+        startIndicator()
+    }
+    
+    func pressAppleLoginButton() {
+        AppleLoginHelper.shared.setDelegate(self)
+        AppleLoginHelper.shared.handleAppleIdRequest()
+        startIndicator()
+    }
+    
+    func pressGoogleLoginButton() {
+        GIDSignIn.sharedInstance()?.signIn()
         startIndicator()
     }
     
@@ -86,6 +111,12 @@ private extension LoginPopupView {
     func isEnabledLoginButton(with isValid: Bool) {
         loginButton.isEnabled = isValid
     }
+    
+    func requestAppleLogin(credential: String, name: String) {
+        
+    }
+    
+    func requestSignUp
 }
 
 extension LoginPopupView: UITextFieldDelegate {
@@ -105,6 +136,18 @@ extension Reactive where Base: LoginPopupView {
     var pressLoginButton: BindingTarget<UIButton> {
         return makeBindingTarget({ base, _ in
             base.pressLoginButton()
+        })
+    }
+    
+    var pressAppleLoginButton: BindingTarget<UIButton> {
+        return makeBindingTarget({ base, _ in
+            base.pressAppleLoginButton()
+        })
+    }
+    
+    var pressGoogleLoginButton: BindingTarget<UIButton> {
+        return makeBindingTarget({ base, _ in
+            base.pressGoogleLoginButton()
         })
     }
     
@@ -130,5 +173,11 @@ extension Reactive where Base: LoginPopupView {
         return makeBindingTarget({ base, isValid in
             base.isEnabledLoginButton(with: isValid)
         })
+    }
+}
+
+extension LoginPopupView: AppleLoginDelegate {
+    func login(userIdentifier: String, name: String) {
+        
     }
 }

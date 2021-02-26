@@ -102,6 +102,7 @@
 		E9DEBA1225E664AA00EDC182 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEBA1125E664AA00EDC182 /* TextFieldEffects */; };
 		E9DEBA2D25E6714E00EDC182 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEBA2C25E6714E00EDC182 /* NVActivityIndicatorView */; };
 		E9DEBA2F25E6714E00EDC182 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEBA2E25E6714E00EDC182 /* NVActivityIndicatorViewExtended */; };
+		E9DEBC0625E7C08D00EDC182 /* AppleLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DEBC0525E7C08D00EDC182 /* AppleLoginHelper.swift */; };
 		F0B07994B95F822BDC801493 /* Pods_DDD_Attendance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A2C0DC3A07D218B163C43E /* Pods_DDD_Attendance.framework */; };
 /* End PBXBuildFile section */
 
@@ -199,6 +200,7 @@
 		E571F77623241F5300816C04 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		E571F7792324345400816C04 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E571F77B23243D7600816C04 /* HomeTransitionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTransitionCoordinator.swift; sourceTree = "<group>"; };
+		E9DEBC0525E7C08D00EDC182 /* AppleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 		BC101487232E2D020096E962 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E9DEBC0125E7BCA000EDC182 /* Oauth */,
 				BC101488232E2D110096E962 /* LoginPopupView.xib */,
 				BC10148A232E2D1C0096E962 /* LoginPopupView.swift */,
 				BC8863FE23561B590031C7F1 /* LoginPopupViewModel.swift */,
@@ -539,6 +542,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		E9DEBC0125E7BCA000EDC182 /* Oauth */ = {
+			isa = PBXGroup;
+			children = (
+				E9DEBC0525E7C08D00EDC182 /* AppleLoginHelper.swift */,
+			);
+			path = Oauth;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -551,6 +562,7 @@
 				BCE1B3B4231BB68D001BB684 /* Frameworks */,
 				BCE1B3B5231BB68D001BB684 /* Resources */,
 				F57DADA34A71F63BA9CBAEB7 /* [CP] Embed Pods Frameworks */,
+				22CE2C05C64DE179F85BFE2B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -651,6 +663,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		22CE2C05C64DE179F85BFE2B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DDD.Attendance/Pods-DDD.Attendance-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DDD.Attendance/Pods-DDD.Attendance-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DDD.Attendance/Pods-DDD.Attendance-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5EDF86032407E6162074FE35 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -757,6 +786,7 @@
 				BC8863FF23561B590031C7F1 /* LoginPopupViewModel.swift in Sources */,
 				BCE1B3D4231BB7BC001BB684 /* HomeViewController.swift in Sources */,
 				BCE1B3FB231BE6E9001BB684 /* QRCodeController.swift in Sources */,
+				E9DEBC0625E7C08D00EDC182 /* AppleLoginHelper.swift in Sources */,
 				4648F77F24BB19CF0084B2A2 /* HomeMenuCell.swift in Sources */,
 				2057031F232E2B0200103A3E /* SignUpButton.swift in Sources */,
 			);
@@ -907,7 +937,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = DDD.Attendance/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -940,7 +970,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = DDD.Attendance/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
