@@ -64,8 +64,8 @@ class LoginPopupView: BaseView {
     
     override func bindStyle() {
         appleLoginButton.imageView?.image = UIImage(named: "signup_info")
-        appleLoginButton.layer.cornerRadius = 99
-        googleLoginButton.layer.cornerRadius = 99
+        appleLoginButton.layer.cornerRadius = 15
+        googleLoginButton.layer.cornerRadius = 15
     }
     
     func failureAction() {
@@ -116,7 +116,9 @@ private extension LoginPopupView {
         
     }
     
-    func requestSignUp
+    func requestSignUp() {
+        
+    }
 }
 
 extension LoginPopupView: UITextFieldDelegate {

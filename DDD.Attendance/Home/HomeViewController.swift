@@ -12,6 +12,7 @@ import ReactiveSwift
 
 class HomeViewController: BaseViewController {
 
+    @IBOutlet weak var myPageButton: UIButton!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var bottomTriggerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomTriggerView: AccountView!
