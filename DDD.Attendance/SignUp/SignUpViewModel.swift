@@ -23,6 +23,7 @@ enum Position: Int, Codable {
     case and
     case ios
     case backend
+    case web
     
     var name: String {
         switch self {
@@ -34,6 +35,8 @@ enum Position: Int, Codable {
             return "iOS"
         case .backend:
             return "BackEnd"
+        case .web:
+            return "Web"
         default:
             return ""
         }
@@ -49,6 +52,8 @@ enum Position: Int, Codable {
             return UIImage(named: "imgAttendanceCheckIos")
         case .backend:
             return UIImage(named: "imgAttendanceCheckServer")
+        case .web:
+            return UIImage(named: "logoWeb")
         default:
             return UIImage()
         }

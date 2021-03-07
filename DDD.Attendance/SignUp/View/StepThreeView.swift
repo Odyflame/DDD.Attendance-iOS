@@ -20,6 +20,7 @@ class StepThreeView: BaseView {
     @IBOutlet weak var andPositionCardView: PositionCardView!
     @IBOutlet weak var iosPositionCardView: PositionCardView!
     @IBOutlet weak var backendPositionCardView: PositionCardView!
+    @IBOutlet weak var webPositionCardView: PositionCardView!
     
     private let nextButton: SignUpButton = SignUpButton()
     private let viewModel: SignUpViewModel
@@ -55,6 +56,8 @@ class StepThreeView: BaseView {
             .controlEvents(.touchUpInside)
         reactive.pressPositionCardView <~ backendPositionCardView.reactive
             .controlEvents(.touchUpInside)
+        reactive.pressPositionCardView <~ webPositionCardView.reactive
+            .controlEvents(.touchUpInside)
         nextButton.reactive.isEnabled <~ viewModel.stepThreeBtnEnabledSignal
         reactive.pressNextButton <~ nextButton.reactive
             .controlEvents(.touchUpInside)
@@ -66,6 +69,7 @@ class StepThreeView: BaseView {
         iosPositionCardView.isSelected = false
         andPositionCardView.isSelected = false
         backendPositionCardView.isSelected = false
+        webPositionCardView.isSelected = false
     }
     
     func setPosition(_ position: Position) {

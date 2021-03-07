@@ -15,7 +15,7 @@ class LoginViewController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet private weak var loginPopupButton: UIButton!
-    //@IBOutlet private weak var signUpButton: UIButton!
+    @IBOutlet private weak var signUpButton: UIButton!
     
     private let transition = LoginTransitionCoordinator()
     private let dataSource = LoginDataSource()
@@ -87,7 +87,7 @@ class LoginViewController: BaseViewController {
         reactive.presentLoginPopupViewController <~ loginPopupButton.reactive
             .controlEvents(.touchUpInside)
         
-        //reactive.presentSignUpViewController <~ signUpButton.reactive.controlEvents(.touchUpInside)
+        reactive.presentSignUpViewController <~ signUpButton.reactive.controlEvents(.touchUpInside)
     }
     
     override func viewDidLoad() {
