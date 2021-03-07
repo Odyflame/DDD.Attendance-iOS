@@ -149,9 +149,3 @@ extension LoginViewController: InteractiveTransitionableViewController {
         return transition.interactiveDismissTransition
     }
 }
-
-extension LoginViewController: AppleLoginDelegate {
-    func login(userIdentifier: String, name: String) {
-        
-    }
-}

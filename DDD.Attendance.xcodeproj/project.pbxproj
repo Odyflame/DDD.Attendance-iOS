@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		187F2F1425F4A451003590F9 /* NewDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F2F1325F4A451003590F9 /* NewDatabase.swift */; };
 		18B9380C25F39A180077F630 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B9380B25F39A180077F630 /* MyPageViewController.swift */; };
 		18B9381325F39CB70077F630 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B9381225F39CB70077F630 /* MyPage.storyboard */; };
 		18B9381725F3CB780077F630 /* NewsLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B9381525F3CB780077F630 /* NewsLinkTableViewCell.swift */; };
@@ -112,6 +113,7 @@
 
 /* Begin PBXFileReference section */
 		168DF1228F6E1BC993EB16A5 /* Pods-DDD.Attendance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDD.Attendance.release.xcconfig"; path = "Target Support Files/Pods-DDD.Attendance/Pods-DDD.Attendance.release.xcconfig"; sourceTree = "<group>"; };
+		187F2F1325F4A451003590F9 /* NewDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDatabase.swift; sourceTree = "<group>"; };
 		18B9380B25F39A180077F630 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		18B9381225F39CB70077F630 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		18B9381525F3CB780077F630 /* NewsLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLinkTableViewCell.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				BC381F2F2349F4760040202D /* Firebase.swift */,
+				187F2F1325F4A451003590F9 /* NewDatabase.swift */,
 				BCDE474F2379A990009CEAC2 /* Curriculum.swift */,
 			);
 			path = Repository;
@@ -759,6 +762,7 @@
 				46481EA3249DF80100F3DB02 /* SetAttendanceViewController.swift in Sources */,
 				BC381F302349F4760040202D /* Firebase.swift in Sources */,
 				E571F76E2324085C00816C04 /* InteractiveAnimator.swift in Sources */,
+				187F2F1425F4A451003590F9 /* NewDatabase.swift in Sources */,
 				466B86BF24C475FE00855C94 /* NameHeaderCell.swift in Sources */,
 				4648F77724BB16040084B2A2 /* ManagerHomeViewController.swift in Sources */,
 				18B9381725F3CB780077F630 /* NewsLinkTableViewCell.swift in Sources */,

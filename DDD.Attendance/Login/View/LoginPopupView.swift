@@ -44,7 +44,6 @@ class LoginPopupView: BaseView {
     override func bindViewModel() {
         super.bindViewModel()
         
-    
         reactive.pressAppleLoginButton <~ appleLoginButton.reactive.controlEvents(.touchUpInside)
         
         reactive.pressGoogleLoginButton <~ googleLoginButton.reactive.controlEvents(.touchUpInside)
@@ -64,6 +63,7 @@ class LoginPopupView: BaseView {
     
     override func bindStyle() {
         appleLoginButton.imageView?.image = UIImage(named: "signup_info")
+        googleLoginButton.imageView?.image = UIImage(named: "signup_info")
         appleLoginButton.layer.cornerRadius = 15
         googleLoginButton.layer.cornerRadius = 15
     }

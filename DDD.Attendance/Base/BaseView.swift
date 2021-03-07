@@ -23,6 +23,7 @@ class BaseView: UIView {
         commonInit()
         bindData()
         bindViewModel()
+        bindStyle()
     }
     
     func bindViewModel() {}
