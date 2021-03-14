@@ -84,7 +84,7 @@ private extension LoginPopupView {
     
     func pressAppleLoginButton() {
         AppleLoginHelper.shared.setDelegate(self)
-        AppleLoginHelper.shared.handleAppleIdRequest()
+        AppleLoginHelper.shared.startSignInWithAppleFlow()
         startIndicator()
     }
     
@@ -179,7 +179,13 @@ extension Reactive where Base: LoginPopupView {
 }
 
 extension LoginPopupView: AppleLoginDelegate {
-    func login(userIdentifier: String, name: String) {
+    func login(name: String, email: String, credential: AuthCredential) {
         
+    }
+}
+
+extension LoginPopupView: GoogleLoginDelegate {
+    func googleLogin(name: String, email: String, credential: AuthCredential) {
+            
     }
 }

@@ -99,6 +99,7 @@
 		E571F77723241F5300816C04 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E571F77623241F5300816C04 /* Account.storyboard */; };
 		E571F77A2324345400816C04 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571F7792324345400816C04 /* UIView+Extension.swift */; };
 		E571F77C23243D7600816C04 /* HomeTransitionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571F77B23243D7600816C04 /* HomeTransitionCoordinator.swift */; };
+		E9A0B4EA25FDF4DA004E859D /* GoogleLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A0B4E925FDF4DA004E859D /* GoogleLoginHelper.swift */; };
 		E9DEB98425E5E29200EDC182 /* ReactiveCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEB98325E5E29200EDC182 /* ReactiveCocoa */; };
 		E9DEB98825E5E3AE00EDC182 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEB98725E5E3AE00EDC182 /* Alamofire */; };
 		E9DEB98C25E5E7E000EDC182 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E9DEB98B25E5E7E000EDC182 /* SnapKit */; };
@@ -210,6 +211,7 @@
 		E571F77623241F5300816C04 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		E571F7792324345400816C04 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E571F77B23243D7600816C04 /* HomeTransitionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTransitionCoordinator.swift; sourceTree = "<group>"; };
+		E9A0B4E925FDF4DA004E859D /* GoogleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginHelper.swift; sourceTree = "<group>"; };
 		E9DEBC0525E7C08D00EDC182 /* AppleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -569,6 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				E9DEBC0525E7C08D00EDC182 /* AppleLoginHelper.swift */,
+				E9A0B4E925FDF4DA004E859D /* GoogleLoginHelper.swift */,
 			);
 			path = Oauth;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				BC3E50BE232A5F8000B56EBF /* StepTwoView.swift in Sources */,
 				BC886401235B5BA00031C7F1 /* UIVIewController+Extension.swift in Sources */,
 				BCE1B3CF231BB75E001BB684 /* BaseViewController.swift in Sources */,
+				E9A0B4EA25FDF4DA004E859D /* GoogleLoginHelper.swift in Sources */,
 				BC3E50B8232A5F6100B56EBF /* StepOneView.swift in Sources */,
 				BC1014982333DD4E0096E962 /* WelcomeCell.swift in Sources */,
 				E571F76C2324075300816C04 /* DismissingViewAnimator.swift in Sources */,
